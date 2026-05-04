@@ -7,23 +7,35 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url("flow_pic9_bottom.svg") no-repeat center center fixed;
-      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: white;
     }
 
-    .overlay {
-      background: rgba(255, 255, 255, 0.85);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px;
+    /* background SVG at bottom */
+    body::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 60vh; /* controls how much vertical space it takes */
+      background: url("flow_pic9_bottom.svg") no-repeat bottom center;
+      background-size: contain;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    /* content block shifted right */
+    .content {
+      margin-left: 20vw;   /* move right */
+      margin-top: 15vh;
+      max-width: 600px;
     }
 
     h1 {
-      color: #67874C; /* your nicegreen */
+      color: #67874C;
       font-size: 42px;
       margin-bottom: 30px;
     }
